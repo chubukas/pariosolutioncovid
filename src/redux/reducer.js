@@ -1,6 +1,5 @@
 import { createAsyncThunk, createReducer } from "@reduxjs/toolkit";
-
-import { fetchProducts } from "./datas";
+import { api } from "./api";
 
 // All Product Initial State
 const initialProductsState = {
@@ -13,9 +12,10 @@ const initialProductsState = {
 export const fetchAllProducts = createAsyncThunk(
   "products/fetchAllProducts",
   async () => {
-    const response = await fetchProducts();
+    const response = await fetch(api);
     // The value we return becomes the `fulfilled` action payload
-    return response.data;
+    const data = await response.json();
+    return data.data;
   }
 );
 
