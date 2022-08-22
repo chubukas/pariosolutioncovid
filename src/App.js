@@ -1,7 +1,12 @@
 import "./App.css";
+import Background from "./components/background";
 
 function App() {
-  return <div></div>;
+  return (
+    <>
+      <Background />
+    </>
+  );
 }
 
 export default App;
